@@ -258,8 +258,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3478848851303635904}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34694627, y: -0.000000016167178, z: 0.000000005980837, w: 0.93788505}
-  m_LocalPosition: {x: 0, y: 45, z: -45.000004}
+  m_LocalRotation: {x: 0.34694627, y: 0.000000011058685, z: -0.000000004090875, w: 0.93788505}
+  m_LocalPosition: {x: 0, y: 45, z: -45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -544,6 +544,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7154966693456604735}
   - component: {fileID: 4241918188788559148}
+  - component: {fileID: 1716813190417145384}
+  - component: {fileID: 1515364831693155359}
   m_Layer: 0
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -657,11 +659,11 @@ MonoBehaviour:
   targetRigidbody2D: {fileID: 0}
   targetTransform: {fileID: 7154966693456604735}
   _result:
-    position: {x: 0, y: 0, z: 50}
-    up: {x: 0, y: 1, z: 0}
-    forward: {x: -0.00020597324, y: 0, z: 1}
-    color: {r: 1, g: 1, b: 1, a: 1}
-    size: 1
+    position: {x: 0, y: 0, z: 0}
+    up: {x: 0, y: 0, z: 0}
+    forward: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    size: 0
     percent: 0
   _finalResult:
     position: {x: 0, y: 0, z: 50}
@@ -688,6 +690,31 @@ MonoBehaviour:
   _unityOnBeginningReached:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1716813190417145384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849269027556999997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692a472f9fc049041b4c3dedfb192cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+--- !u!114 &1515364831693155359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849269027556999997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5603d022b31d46642a3eedf02791b20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8149864660967813566
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,8 +777,8 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
+  m_HorizontalDamping: 0
+  m_VerticalDamping: 0
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_DeadZoneWidth: 0
@@ -775,9 +802,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 45, z: -45}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -884,7 +911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7417462074639384561, guid: 68989a59847c96b47ad8398f10c0ae86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 7417462074639384561, guid: 68989a59847c96b47ad8398f10c0ae86, type: 3}
       propertyPath: m_LocalPosition.z
@@ -918,7 +945,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4067674027903000375, guid: 68989a59847c96b47ad8398f10c0ae86, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
