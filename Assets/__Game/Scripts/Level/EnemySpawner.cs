@@ -28,7 +28,7 @@ namespace Factura
       {
         Vector3 randomPosition = GetRandomPositionWithinCollider();
 
-        Instantiate(_enemyPrefab, randomPosition, Quaternion.identity);
+        Instantiate(_enemyPrefab, randomPosition, Quaternion.identity, transform);
       }
     }
 

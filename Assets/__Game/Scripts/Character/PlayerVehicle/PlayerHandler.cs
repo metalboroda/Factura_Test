@@ -1,8 +1,6 @@
-using UnityEngine;
-
 namespace Factura
 {
-  public class PlayerVehicleHandler : CharacterHandler
+  public class PlayerHandler : CharacterHandler
   {
     public override void Damage(int damage)
     {

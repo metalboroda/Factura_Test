@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Factura
 {
   public class EnemyHandler : CharacterHandler
@@ -11,6 +9,8 @@ namespace Factura
       if (Health < 0)
       {
         Health = 0;
+
+        Destroy(gameObject);
       }
     }
   }

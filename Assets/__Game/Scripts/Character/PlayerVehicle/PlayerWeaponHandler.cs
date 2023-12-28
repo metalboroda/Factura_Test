@@ -1,12 +1,12 @@
-using Zenject;
+using UnityEngine;
 
 namespace Factura
 {
   public class PlayerWeaponHandler : CharacterWeaponHandler
   {
-    private Weapon _currentWeapon;
+    [SerializeField] private PlayerController _playerVehicleController;
 
-    [Inject] private InputManager _inputManager;
+    private Weapon _currentWeapon;
 
     private void Awake()
     {
@@ -16,13 +16,24 @@ namespace Factura
     private void Update()
     {
       RotateWeapon();
+
+      if (_playerVehicleController.StateMachine.CurrentState is PlayerMovementState)
+      {
+        if (_currentWeapon is Turret turret)
+        {
+          turret.AutoShoot();
+        }
+      }
     }
 
     protected override void RotateWeapon()
     {
+      if (_playerVehicleController.StateMachine.CurrentState
+        is not PlayerMovementState) return;
+
       if (_currentWeapon is Turret turret)
       {
-        turret.Rotate(_inputManager.Joystick.Horizontal);
+        turret.Rotate(_playerVehicleController.InputManager.Joystick.Horizontal);
       }
     }
   }

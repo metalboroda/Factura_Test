@@ -11,6 +11,12 @@ namespace Factura
     [SerializeField] protected int Speed;
     [SerializeField] protected int Power;
 
+    [Header("Shooting")]
+    [SerializeField] protected bool Autoshooting;
+    [SerializeField] protected float ShootingInterval = 0.3f;
+    [SerializeField] protected LayerMask EnemyLayer;
+    [SerializeField] protected float RayDistance = 100f;
+
     [Header("Laser")]
     [SerializeField] private bool _needLaser;
     [SerializeField] private Material _laserMat;
@@ -27,12 +33,9 @@ namespace Factura
       SetupLaser();
     }
 
-    private void Update()
-    {
-      DrawLaser();
-    }
-
     public virtual void Shoot() { }
+
+    public virtual void AutoShoot() { }
 
     private void SetupLaser()
     {
@@ -54,6 +57,14 @@ namespace Factura
       Vector3 endPosition = ShootingPoint.position + ShootingPoint.forward * _laserLength;
 
       laserLineRenderer.SetPosition(1, endPosition);
+    }
+
+    protected bool DetectEnemy()
+    {
+      Ray ray = new(ShootingPoint.position, ShootingPoint.forward);
+      bool hitEnemy = Physics.Raycast(ray, out RaycastHit hit, RayDistance, EnemyLayer);
+
+      return hitEnemy;
     }
   }
 }

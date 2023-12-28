@@ -6,6 +6,8 @@ namespace Factura
   {
     protected virtual void ShootWeapon() { }
 
+    protected virtual void AutoShootWeapon() { }
+
     protected virtual void RotateWeapon() { }
   }
 }

@@ -4,14 +4,14 @@ namespace Factura
 {
   public class Projectile : MonoBehaviour
   {
+    [SerializeField] private Rigidbody _rigidbody;
+
     private float _speed;
     private int _power;
 
-    private MovementComp _movementComp = new();
-
-    private void Update()
+    private void Start()
     {
-      _movementComp.MoveForward(_speed, transform);
+      Impulse();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,6 +28,13 @@ namespace Factura
     {
       _speed = speed;
       _power = power;
+    }
+
+    private void Impulse()
+    {
+      Vector3 forwardDirection = transform.forward;
+
+      _rigidbody.AddForce(forwardDirection * _speed, ForceMode.Impulse);
     }
   }
 }

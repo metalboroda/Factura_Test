@@ -79,10 +79,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52203110268d85242a00f80db7e14af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 5307288409590561895, guid: 798d395cab3ef7245b7dfdc8825bb8ca, type: 3}
   ShootingPoint: {fileID: 4064262472503825016}
-  Speed: 0
-  Power: 0
+  Speed: 200
+  Power: 75
+  _autoshooting: 1
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _rayDistance: 100
+  _shootingInterval: 0.3
   _needLaser: 1
   _laserMat: {fileID: 2100000, guid: 2e5bffeff0ddbcb41b6c2af85dc52325, type: 2}
   _laserLength: 100

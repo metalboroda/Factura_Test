@@ -258,7 +258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3478848851303635904}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34694627, y: 0.000000011058685, z: -0.000000004090875, w: 0.93788505}
+  m_LocalRotation: {x: 0.34694627, y: 0.000000010993751, z: -0.0000000040668544, w: 0.93788505}
   m_LocalPosition: {x: 0, y: 45, z: -45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -544,8 +544,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7154966693456604735}
   - component: {fileID: 4241918188788559148}
+  - component: {fileID: 5917968945562690826}
   - component: {fileID: 1716813190417145384}
+  - component: {fileID: 3313094609635369886}
   - component: {fileID: 1515364831693155359}
+  - component: {fileID: 1637400915758024656}
   m_Layer: 0
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -690,6 +693,20 @@ MonoBehaviour:
   _unityOnBeginningReached:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5917968945562690826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849269027556999997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02afe422f4654e5448c12a4660f163a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerMovement>k__BackingField: {fileID: 3313094609635369886}
+  <PlayerFollowerHandler>k__BackingField: {fileID: 1637400915758024656}
 --- !u!114 &1716813190417145384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,6 +720,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+--- !u!114 &3313094609635369886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849269027556999997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8222458c8533e488f9e4e5bcdfe48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MovementSpeed>k__BackingField: 20
 --- !u!114 &1515364831693155359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,6 +745,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5603d022b31d46642a3eedf02791b20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerVehicleController: {fileID: 5917968945562690826}
+--- !u!114 &1637400915758024656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849269027556999997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1754d931ddd5c054593f0a1b919908bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _splineFollower: {fileID: 4241918188788559148}
 --- !u!1 &8149864660967813566
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
+  m_BindingMode: 4
   m_FollowOffset: {x: 0, y: 45, z: -45}
   m_XDamping: 0
   m_YDamping: 0
@@ -904,6 +948,14 @@ PrefabInstance:
     - target: {fileID: 3479843475156385059, guid: 68989a59847c96b47ad8398f10c0ae86, type: 3}
       propertyPath: m_Name
       value: CarTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413025496261107674, guid: 68989a59847c96b47ad8398f10c0ae86, type: 3}
+      propertyPath: Autoshooting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413025496261107674, guid: 68989a59847c96b47ad8398f10c0ae86, type: 3}
+      propertyPath: EnemyLayer.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 7417462074639384561, guid: 68989a59847c96b47ad8398f10c0ae86, type: 3}
       propertyPath: m_LocalPosition.x
