@@ -4,8 +4,6 @@ namespace Factura
 {
   public class PlayerWeaponHandler : CharacterWeaponHandler
   {
-    [SerializeField] private PlayerController _playerVehicleController;
-
     private Weapon _currentWeapon;
 
     private void Awake()
@@ -13,27 +11,19 @@ namespace Factura
       _currentWeapon = GetComponentInChildren<Weapon>();
     }
 
-    private void Update()
+    public override void AutoShootWeapon()
     {
-      RotateWeapon();
-
-      if (_playerVehicleController.StateMachine.CurrentState is PlayerMovementState)
+      if (_currentWeapon is Turret turret)
       {
-        if (_currentWeapon is Turret turret)
-        {
-          turret.AutoShoot();
-        }
+        turret.AutoShoot();
       }
     }
 
-    protected override void RotateWeapon()
+    public override void RotateWeapon(Vector2 axis)
     {
-      if (_playerVehicleController.StateMachine.CurrentState
-        is not PlayerMovementState) return;
-
       if (_currentWeapon is Turret turret)
       {
-        turret.Rotate(_playerVehicleController.InputManager.Joystick.Horizontal);
+        turret.Rotate(axis);
       }
     }
   }

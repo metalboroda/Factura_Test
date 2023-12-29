@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,8 +5,6 @@ namespace Factura
 {
   public class GameController : MonoBehaviour
   {
-    public event Action<GameStateEnum> StateChanged;
-
     [field: SerializeField] public GameStateEnum GameState { get; private set; }
 
     public GameStateEnum CurrentState { get; private set; }
@@ -25,7 +22,7 @@ namespace Factura
         CurrentState = newState;
         GameState = newState;
 
-        StateChanged?.Invoke(GameState);
+        EventManager.RaiseGameStateChanged(GameState);
       }
     }
 

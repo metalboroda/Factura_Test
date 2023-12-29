@@ -36,9 +36,9 @@ namespace Factura
       SpawnedProjectile.Init(Speed, Power);
     }
 
-    public void Rotate(float axisX)
+    public void Rotate(Vector2 axis)
     {
-      _rotationComp.RotateByInput(_rotationSpeed, _rotMultiplier, axisX, transform);
+      _rotationComp.RotateByInput(_rotationSpeed, _rotMultiplier, axis, transform);
     }
   }
 }

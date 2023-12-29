@@ -4,10 +4,10 @@ namespace Factura
 {
   public abstract class CharacterWeaponHandler : MonoBehaviour
   {
-    protected virtual void ShootWeapon() { }
+    public virtual void ShootWeapon() { }
 
-    protected virtual void AutoShootWeapon() { }
+    public virtual void AutoShootWeapon() { }
 
-    protected virtual void RotateWeapon() { }
+    public virtual void RotateWeapon(Vector2 axis) { }
   }
 }
