@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd1d204c24c9644bb2425028b011581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trailRenderer: {fileID: 6715627759821152114}
   _rigidbody: {fileID: 5473780374057470167}
 --- !u!1 &990910365868404107
 GameObject:

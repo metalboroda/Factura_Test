@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Factura
 {
@@ -24,6 +25,7 @@ namespace Factura
     [SerializeField] private float _startWidth = 0.2f;
     [SerializeField] private float _endWidth = 0;
 
+    protected ObjectPool<Projectile> ProjectilePool;
     protected Projectile SpawnedProjectile;
 
     private LineRenderer laserLineRenderer;

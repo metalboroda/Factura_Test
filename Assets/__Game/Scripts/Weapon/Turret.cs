@@ -12,6 +12,11 @@ namespace Factura
 
     private RotationComp _rotationComp = new();
 
+    private void Awake()
+    {
+      ProjectilePool = new(CreateProjectile, null, OnPutBackInPull, defaultCapacity: 10);
+    }
+
     private void Update()
     {
       DrawLaser();
@@ -31,14 +36,26 @@ namespace Factura
 
     public override void Shoot()
     {
-      SpawnedProjectile = Instantiate(Projectile, ShootingPoint.position,
-          ShootingPoint.rotation, null);
-      SpawnedProjectile.Init(Speed, Power);
+      SpawnedProjectile = ProjectilePool.Get();
+      SpawnedProjectile.Init(Speed, Power, ShootingPoint.position,
+        ShootingPoint.rotation, ProjectilePool);
     }
 
     public void Rotate(Vector2 axis)
     {
       _rotationComp.RotateByInput(_rotationSpeed, _rotMultiplier, axis, transform);
+    }
+
+    private Projectile CreateProjectile()
+    {
+      var projectile = Instantiate(Projectile);
+
+      return projectile;
+    }
+
+    private void OnPutBackInPull(Projectile projectile)
+    {
+      projectile.gameObject.SetActive(false);
     }
   }
 }
