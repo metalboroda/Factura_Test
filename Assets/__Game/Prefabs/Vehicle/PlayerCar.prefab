@@ -360,7 +360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3478848851303635904}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34694627, y: 0.000000010993751, z: -0.0000000040668544, w: 0.93788505}
+  m_LocalRotation: {x: 0.34694624, y: -0.000000030035462, z: 0.000000011110841, w: 0.93788505}
   m_LocalPosition: {x: 0, y: 45, z: -45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 45, z: -45}
+  m_FollowOffset: {x: 0, y: 50, z: -50}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -1300,10 +1300,6 @@ PrefabInstance:
     - target: {fileID: 5413025496261107674, guid: 68989a59847c96b47ad8398f10c0ae86, type: 3}
       propertyPath: Autoshooting
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5413025496261107674, guid: 68989a59847c96b47ad8398f10c0ae86, type: 3}
-      propertyPath: EnemyLayer.m_Bits
-      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 7417462074639384561, guid: 68989a59847c96b47ad8398f10c0ae86, type: 3}
       propertyPath: m_LocalPosition.x

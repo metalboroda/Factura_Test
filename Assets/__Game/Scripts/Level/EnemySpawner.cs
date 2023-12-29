@@ -27,8 +27,9 @@ namespace Factura
       for (int i = 0; i < _spawnAmount; i++)
       {
         Vector3 randomPosition = GetRandomPositionWithinCollider();
+        Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-        Instantiate(_enemyPrefab, randomPosition, Quaternion.identity, transform);
+        Instantiate(_enemyPrefab, randomPosition, randomRotation, transform);
       }
     }
 

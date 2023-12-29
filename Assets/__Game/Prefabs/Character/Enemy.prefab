@@ -515,7 +515,8 @@ GameObject:
   - component: {fileID: 3353399604767856015}
   - component: {fileID: 9154328179260570033}
   - component: {fileID: 5969296097822597214}
-  m_Layer: 0
+  - component: {fileID: 2470039531337721325}
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,6 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EnemyMovement>k__BackingField: {fileID: 5969296097822597214}
   <EnemyDetector>k__BackingField: {fileID: 3166501942935915966}
+  <CharacterAnimation>k__BackingField: {fileID: 2470039531337721325}
 --- !u!114 &9154328179260570033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,8 +657,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f621413bae54a7344984cda3633692a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MovementSpeed>k__BackingField: 25
-  _enemyController: {fileID: 3353399604767856015}
+  <MovementSpeed>k__BackingField: 17.5
+  <RoationSpeed>k__BackingField: 5
+--- !u!114 &2470039531337721325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3886120733697114696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0518f3dd8f7aa4f8014906853fe4f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterAnimationSO: {fileID: 11400000, guid: 49950442f07428c4aa469864ce266b58, type: 2}
+  _crossfade: 0.2
+  _animator: {fileID: 5970009804947107367}
 --- !u!1 &4145623167358483829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1214,7 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  _detectionRadius: 35
+  _detectionRadius: 25
   _enemyController: {fileID: 3353399604767856015}
 --- !u!1 &8511170443241749185
 GameObject:

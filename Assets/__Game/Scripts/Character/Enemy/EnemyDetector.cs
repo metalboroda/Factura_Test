@@ -34,13 +34,19 @@ namespace Factura
       {
         TargetPosition = _collidersBuffer[0].transform.position;
 
-        _enemyController.StateMachine.ChangeState(new EnemyChaseState(_enemyController));
+        if ((_enemyController.StateMachine.CurrentState is not EnemyChaseState))
+        {
+          _enemyController.StateMachine.ChangeState(new EnemyChaseState(_enemyController));
+        }
       }
       else
       {
         TargetPosition = Vector3.zero;
 
-        _enemyController.StateMachine.ChangeState(new EnemyIdleState(_enemyController));
+        if ((_enemyController.StateMachine.CurrentState is not EnemyIdleState))
+        {
+          _enemyController.StateMachine.ChangeState(new EnemyIdleState(_enemyController));
+        }
       }
     }
   }

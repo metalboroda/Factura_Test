@@ -83,12 +83,12 @@ MonoBehaviour:
   ShootingPoint: {fileID: 4064262472503825016}
   Speed: 200
   Power: 75
-  _autoshooting: 1
-  _enemyLayer:
+  Autoshooting: 0
+  ShootingInterval: 0.25
+  EnemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  _rayDistance: 100
-  _shootingInterval: 0.3
+  RayDistance: 100
   _needLaser: 1
   _laserMat: {fileID: 2100000, guid: 2e5bffeff0ddbcb41b6c2af85dc52325, type: 2}
   _laserLength: 100

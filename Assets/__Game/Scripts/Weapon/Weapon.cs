@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Factura
 {
-  public abstract class Weapon : MonoBehaviour, IShootable
+  public abstract class Weapon : MonoBehaviour, IShootable, IAutoShootable
   {
     [SerializeField] protected Projectile Projectile;
     [SerializeField] protected Transform ShootingPoint;

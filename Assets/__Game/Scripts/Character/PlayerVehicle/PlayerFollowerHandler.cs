@@ -10,12 +10,12 @@ namespace Factura
     [Header("")]
     [SerializeField] private PlayerController _playerController;
 
-    private void Awake()
+    private void OnEnable()
     {
       _splineFollower.onEndReached += OnEndReached;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
       _splineFollower.onEndReached -= OnEndReached;
     }

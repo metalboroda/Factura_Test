@@ -6,6 +6,7 @@ namespace Factura
   {
     [field: SerializeField] public EnemyMovement EnemyMovement { get; private set; }
     [field: SerializeField] public EnemyDetector EnemyDetector { get; private set; }
+    [field: SerializeField] public CharacterAnimation CharacterAnimation { get; private set; }
 
     private void Awake()
     {
