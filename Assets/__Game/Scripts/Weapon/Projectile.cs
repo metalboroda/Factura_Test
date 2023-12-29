@@ -7,12 +7,16 @@ namespace Factura
   {
     [SerializeField] private TrailRenderer _trailRenderer;
 
+    [Header("VFX")]
+    [SerializeField] private ParticleHandler _explosionVFX;
+
     [Header("")]
     [SerializeField] private Rigidbody _rigidbody;
 
     private float _speed;
     private int _power;
-    private ObjectPool<Projectile> _pool;
+    private ObjectPool<Projectile> _projectilePool;
+    private ObjectPool<ParticleHandler> _particlePool;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,13 +25,15 @@ namespace Factura
         damageable.Damage(_power);
       }
 
-      _pool.Release(this);
+      SpawnExplosionVFX();
+
+      _projectilePool.Release(this);
     }
 
     public void Init(float speed, int power, Vector3 position,
       Quaternion rotation, ObjectPool<Projectile> pool)
     {
-      _pool = pool;
+      _projectilePool = pool;
       gameObject.SetActive(true);
       _rigidbody.velocity = Vector3.zero;
       transform.position = position;
@@ -40,6 +46,8 @@ namespace Factura
         _trailRenderer.Clear();
       }
 
+      _particlePool = new(CreateParticle, null, OnPutBackInPull, defaultCapacity: 10);
+
       Impulse();
     }
 
@@ -48,6 +56,25 @@ namespace Factura
       Vector3 forwardDirection = transform.forward;
 
       _rigidbody.AddForce(forwardDirection * _speed, ForceMode.Impulse);
+    }
+
+    private void SpawnExplosionVFX()
+    {
+      var spawnedVFX = _particlePool.Get();
+
+      spawnedVFX.Init(transform.position, _particlePool);
+    }
+
+    private ParticleHandler CreateParticle()
+    {
+      var particle = Instantiate(_explosionVFX);
+
+      return particle;
+    }
+
+    private void OnPutBackInPull(ParticleHandler particle)
+    {
+      particle.gameObject.SetActive(false);
     }
   }
 }

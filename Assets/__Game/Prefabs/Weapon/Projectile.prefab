@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trailRenderer: {fileID: 6715627759821152114}
+  _explosionVFX: {fileID: 7905399263670377844, guid: 20a457a9ca4525b4c8f937d5f3f2bf06, type: 3}
   _rigidbody: {fileID: 5473780374057470167}
 --- !u!1 &990910365868404107
 GameObject:
