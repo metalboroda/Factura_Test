@@ -28,6 +28,8 @@ namespace Factura
     private void OnEndReached(double obj)
     {
       _playerController.StateMachine.ChangeState(new PlayerIdleState(_playerController));
+
+      EventManager.RaisePlayerStateChanged(_playerController.StateMachine.CurrentState);
     }
   }
 }

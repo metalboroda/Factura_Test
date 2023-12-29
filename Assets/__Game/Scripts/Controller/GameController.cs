@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Factura
 {
@@ -9,10 +10,27 @@ namespace Factura
 
     public GameStateEnum CurrentState { get; private set; }
 
+    private UnityAction<State> _playerStateChangedAction;
+
+    private void OnEnable()
+    {
+      _playerStateChangedAction = (state) =>
+      {
+        ChangeState(GameStateEnum.Win);
+      };
+
+      EventManager.OnPlayerStateChanged += _playerStateChangedAction;
+    }
+
     private void Start()
     {
       ChangeState(GameStateEnum.Start);
       StartCoroutine(DoGameState());
+    }
+
+    private void OnDisable()
+    {
+      EventManager.OnPlayerStateChanged -= _playerStateChangedAction;
     }
 
     public void ChangeState(GameStateEnum newState)
