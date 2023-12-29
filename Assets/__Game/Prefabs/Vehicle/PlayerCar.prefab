@@ -258,7 +258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3478848851303635904}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34694627, y: 0.000000010993751, z: -0.0000000040668544, w: 0.93788505}
+  m_LocalRotation: {x: 0.34694624, y: -0.000000030035462, z: 0.000000011110841, w: 0.93788505}
   m_LocalPosition: {x: 0, y: 45, z: -45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -544,12 +544,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7154966693456604735}
   - component: {fileID: 4241918188788559148}
+  - component: {fileID: 6153586273087002422}
+  - component: {fileID: 7276501297560782348}
   - component: {fileID: 5917968945562690826}
   - component: {fileID: 1716813190417145384}
   - component: {fileID: 3313094609635369886}
   - component: {fileID: 1515364831693155359}
   - component: {fileID: 1637400915758024656}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,6 +695,54 @@ MonoBehaviour:
   _unityOnBeginningReached:
     m_PersistentCalls:
       m_Calls: []
+--- !u!54 &6153586273087002422
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849269027556999997}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &7276501297560782348
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849269027556999997}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 12}
+  m_Center: {x: 0, y: 2.5, z: -2}
 --- !u!114 &5917968945562690826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,6 +809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _splineFollower: {fileID: 4241918188788559148}
+  _playerController: {fileID: 5917968945562690826}
 --- !u!1 &8149864660967813566
 GameObject:
   m_ObjectHideFlags: 0

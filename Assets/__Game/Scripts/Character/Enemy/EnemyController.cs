@@ -1,10 +1,20 @@
+using UnityEngine;
+
 namespace Factura
 {
   public class EnemyController : CharacterController
   {
-    private void Start()
+    [field: SerializeField] public EnemyMovement EnemyMovement { get; private set; }
+    [field: SerializeField] public EnemyDetector EnemyDetector { get; private set; }
+
+    private void Awake()
     {
       StateMachine.Init(new EnemyIdleState(this));
+    }
+
+    private void Update()
+    {
+      StateMachine.CurrentState.Update();
     }
   }
 }

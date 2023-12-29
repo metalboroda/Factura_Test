@@ -23,5 +23,10 @@ namespace Factura
         }
       };
     }
+
+    private void Update()
+    {
+      StateMachine.CurrentState.Update();
+    }
   }
 }
