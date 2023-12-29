@@ -627,6 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EnemyMovement>k__BackingField: {fileID: 5969296097822597214}
+  <EnemyHandler>k__BackingField: {fileID: 9154328179260570033}
   <EnemyDetector>k__BackingField: {fileID: 3166501942935915966}
   <CharacterAnimation>k__BackingField: {fileID: 2470039531337721325}
 --- !u!114 &9154328179260570033
@@ -642,6 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  ExplosionVFX: {fileID: 1723088909609016604, guid: 82b2db6d33d825c488b53fbfe1993a8c, type: 3}
   _destroyLayer:
     serializedVersion: 2
     m_Bits: 128

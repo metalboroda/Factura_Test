@@ -16,8 +16,6 @@ namespace Factura
     public override void Enter()
     {
       _characterAnimation.IdleAnim();
-
-      Debug.Log($"{_enemyController.name} Enter EnemyIdleState");
     }
   }
 }

@@ -41,9 +41,7 @@ namespace Factura
       SpawnedProjectile.Init(Speed, Power, ShootingPoint.position,
         ShootingPoint.rotation, ProjectilePool);
 
-      var spawnedFlare = FlarePool.Get();
-
-      spawnedFlare.Init(ShootingPoint.position, FlarePool);
+      SpawnFlare();
     }
 
     public void Rotate(Vector2 axis)
@@ -73,6 +71,13 @@ namespace Factura
     private void OnPutFlareInPull(ParticleHandler particleHandler)
     {
       particleHandler.gameObject.SetActive(false);
+    }
+
+    private void SpawnFlare()
+    {
+      var spawnedFlare = FlarePool.Get();
+
+      spawnedFlare.Init(ShootingPoint.position, FlarePool);
     }
   }
 }

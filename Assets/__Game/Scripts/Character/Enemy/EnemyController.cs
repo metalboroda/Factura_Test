@@ -6,6 +6,7 @@ namespace Factura
   public class EnemyController : CharacterController
   {
     [field: SerializeField] public EnemyMovement EnemyMovement { get; private set; }
+    [field: SerializeField] public EnemyHandler EnemyHandler { get; private set; }
     [field: SerializeField] public EnemyDetector EnemyDetector { get; private set; }
     [field: SerializeField] public CharacterAnimation CharacterAnimation { get; private set; }
 
@@ -23,7 +24,7 @@ namespace Factura
         if (state == GameStateEnum.Win)
         {
           EnemyDetector.gameObject.SetActive(false);
-          StateMachine.ChangeState(new EnemyIdleState(this));
+          StateMachine.ChangeState(new EnemyDeathState(this));
         }
       };
 
