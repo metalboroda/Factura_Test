@@ -14,7 +14,8 @@ namespace Factura
 
     private void Awake()
     {
-      ProjectilePool = new(CreateProjectile, null, OnPutBackInPull, defaultCapacity: 10);
+      ProjectilePool = new(CreateProjectile, null, OnPutProjectileInPull, defaultCapacity: 10);
+      FlarePool = new(CreateFlare, null, OnPutFlareInPull, defaultCapacity: 10);
     }
 
     private void Update()
@@ -39,6 +40,10 @@ namespace Factura
       SpawnedProjectile = ProjectilePool.Get();
       SpawnedProjectile.Init(Speed, Power, ShootingPoint.position,
         ShootingPoint.rotation, ProjectilePool);
+
+      var spawnedFlare = FlarePool.Get();
+
+      spawnedFlare.Init(ShootingPoint.position, FlarePool);
     }
 
     public void Rotate(Vector2 axis)
@@ -53,9 +58,21 @@ namespace Factura
       return projectile;
     }
 
-    private void OnPutBackInPull(Projectile projectile)
+    private ParticleHandler CreateFlare()
+    {
+      var flare = Instantiate(FlareVFX, transform);
+
+      return flare;
+    }
+
+    private void OnPutProjectileInPull(Projectile projectile)
     {
       projectile.gameObject.SetActive(false);
+    }
+
+    private void OnPutFlareInPull(ParticleHandler particleHandler)
+    {
+      particleHandler.gameObject.SetActive(false);
     }
   }
 }

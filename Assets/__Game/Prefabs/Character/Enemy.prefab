@@ -1214,7 +1214,7 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  _detectionRadius: 25
+  _detectionRadius: 30
   _enemyController: {fileID: 3353399604767856015}
 --- !u!1 &8511170443241749185
 GameObject:

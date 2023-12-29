@@ -25,7 +25,11 @@ namespace Factura
     [SerializeField] private float _startWidth = 0.2f;
     [SerializeField] private float _endWidth = 0;
 
+    [Header("VFX")]
+    [SerializeField] protected ParticleHandler FlareVFX;
+
     protected ObjectPool<Projectile> ProjectilePool;
+    protected ObjectPool<ParticleHandler> FlarePool;
     protected Projectile SpawnedProjectile;
 
     private LineRenderer laserLineRenderer;

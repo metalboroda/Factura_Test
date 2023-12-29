@@ -14,6 +14,7 @@ namespace Factura
     {
       _particleSystem.Stop();
       _particlePool = pool;
+      gameObject.SetActive(true);
       transform.position = position;
       _particleSystem.Play();
 
