@@ -31,7 +31,7 @@ namespace Factura
       }
     }
 
-    public GameObject GetObjectFromPool(Vector3 position, Quaternion rotation)
+    public GameObject GetObjectFromPool(Vector3 position, Quaternion rotation, Transform parent)
     {
       foreach (GameObject obj in objectPool)
       {
@@ -45,7 +45,7 @@ namespace Factura
         }
       }
 
-      GameObject newObj = Object.Instantiate(_prefab, position, rotation);
+      GameObject newObj = Object.Instantiate(_prefab, position, rotation, parent);
 
       objectPool.Add(newObj);
 
