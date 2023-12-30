@@ -38,18 +38,6 @@ namespace Factura
       }
     }
 
-    private ParticleHandler CreateExplosion()
-    {
-      var explosion = Instantiate(ExplosionVFX, transform.position, Quaternion.identity);
-
-      return explosion;
-    }
-
-    private void OnPutExplosionInPull(ParticleHandler particleHandler)
-    {
-      particleHandler.gameObject.SetActive(false);
-    }
-
     private void SpawnExplosion()
     {
       var explosion = _explosionPool.GetObjectFromPool(transform.position, transform.rotation, null);
