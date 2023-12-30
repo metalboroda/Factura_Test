@@ -14,8 +14,8 @@ namespace Factura
 
     private void Awake()
     {
-      ProjectilePool = new(CreateProjectile, null, OnPutProjectileInPull, defaultCapacity: 10);
-      FlarePool = new(CreateFlare, null, OnPutFlareInPull, defaultCapacity: 10);
+      ProjectilePool = new(Projectile, 25);
+      FlarePool = new(FlareVFX, 5);
     }
 
     private void Update()
@@ -37,7 +37,8 @@ namespace Factura
 
     public override void Shoot()
     {
-      SpawnedProjectile = ProjectilePool.Get();
+      SpawnedProjectile = ProjectilePool.GetObjectFromPool(
+        ShootingPoint.position, ShootingPoint.rotation, null);
       SpawnedProjectile.Init(Speed, Power, ShootingPoint.position,
         ShootingPoint.rotation, ProjectilePool);
 
@@ -49,33 +50,10 @@ namespace Factura
       _rotationComp.RotateByInput(_rotationSpeed, _rotMultiplier, axis, transform);
     }
 
-    private Projectile CreateProjectile()
-    {
-      var projectile = Instantiate(Projectile);
-
-      return projectile;
-    }
-
-    private ParticleHandler CreateFlare()
-    {
-      var flare = Instantiate(FlareVFX, transform);
-
-      return flare;
-    }
-
-    private void OnPutProjectileInPull(Projectile projectile)
-    {
-      projectile.gameObject.SetActive(false);
-    }
-
-    private void OnPutFlareInPull(ParticleHandler particleHandler)
-    {
-      particleHandler.gameObject.SetActive(false);
-    }
-
     private void SpawnFlare()
     {
-      var spawnedFlare = FlarePool.Get();
+      var spawnedFlare = FlarePool.GetObjectFromPool(
+        ShootingPoint.localPosition, ShootingPoint.rotation, ShootingPoint.transform);
 
       spawnedFlare.Init(ShootingPoint.position, FlarePool);
     }

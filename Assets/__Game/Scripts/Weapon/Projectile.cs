@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Pool;
 
 namespace Factura
 {
@@ -27,7 +26,7 @@ namespace Factura
 
       SpawnExplosionVFX();
 
-      _projectilePool.Release(this);
+      _projectilePool.ReturnObjectToPool(this);
     }
 
     public void Init(float speed, int power, Vector3 position,
@@ -46,7 +45,7 @@ namespace Factura
         _trailRenderer.Clear();
       }
 
-      _particlePool = new(CreateParticle, null, OnPutBackInPull, defaultCapacity: 10);
+      _particlePool = new(_explosionVFX, 25);
 
       Impulse();
     }
@@ -60,21 +59,10 @@ namespace Factura
 
     private void SpawnExplosionVFX()
     {
-      var spawnedVFX = _particlePool.Get();
+      var spawnedVFX = _particlePool.GetObjectFromPool(transform.position,
+        transform.rotation, null);
 
       spawnedVFX.Init(transform.position, _particlePool);
-    }
-
-    private ParticleHandler CreateParticle()
-    {
-      var particle = Instantiate(_explosionVFX);
-
-      return particle;
-    }
-
-    private void OnPutBackInPull(ParticleHandler particle)
-    {
-      particle.gameObject.SetActive(false);
     }
   }
 }

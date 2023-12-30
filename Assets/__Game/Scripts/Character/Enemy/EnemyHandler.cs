@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Pool;
 
 namespace Factura
 {
@@ -8,11 +7,11 @@ namespace Factura
     [Header("")]
     [SerializeField] private LayerMask _destroyLayer;
 
-    private ObjectPool<ParticleHandler> ExplosionPool;
+    private ObjectPool<ParticleHandler> _explosionPool;
 
     private void Awake()
     {
-      ExplosionPool = new(CreateExplosion, null, OnPutExplosionInPull, defaultCapacity: 10);
+      _explosionPool = new(ExplosionVFX, 5);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,9 +52,9 @@ namespace Factura
 
     private void SpawnExplosion()
     {
-      var explosion = ExplosionPool.Get();
+      var explosion = _explosionPool.GetObjectFromPool(transform.position, transform.rotation, null);
 
-      explosion.Init(transform.position, ExplosionPool);
+      explosion.Init(transform.position, _explosionPool);
     }
   }
 }

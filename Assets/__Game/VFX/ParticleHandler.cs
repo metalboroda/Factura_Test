@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Pool;
 
 namespace Factura
 {
@@ -25,7 +24,7 @@ namespace Factura
     {
       yield return new WaitForSeconds(_particleSystem.main.duration);
 
-      _particlePool.Release(this);
+      _particlePool.ReturnObjectToPool(this);
     }
   }
 }

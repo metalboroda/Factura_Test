@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace Factura
 {
-  public class ObjectPool
+  public class ObjectPool<T> where T : MonoBehaviour
   {
-    private GameObject _prefab;
+    private T _prefab;
     private int _poolSize = 100;
 
-    private List<GameObject> objectPool;
+    private List<T> objectPool;
 
-    public ObjectPool(GameObject prefab, int poolSize)
+    public ObjectPool(T prefab, int poolSize)
     {
       _prefab = prefab;
       _poolSize = poolSize;
@@ -20,41 +20,41 @@ namespace Factura
 
     private void InitializePool()
     {
-      objectPool = new List<GameObject>();
+      objectPool = new List<T>();
 
       for (int i = 0; i < _poolSize; i++)
       {
-        GameObject obj = Object.Instantiate(_prefab);
+        T obj = Object.Instantiate(_prefab);
 
-        obj.SetActive(false);
+        obj.gameObject.SetActive(false);
         objectPool.Add(obj);
       }
     }
 
-    public GameObject GetObjectFromPool(Vector3 position, Quaternion rotation, Transform parent)
+    public T GetObjectFromPool(Vector3 position, Quaternion rotation, Transform parent)
     {
-      foreach (GameObject obj in objectPool)
+      foreach (T obj in objectPool)
       {
-        if (!obj.activeInHierarchy)
+        if (!obj.gameObject.activeInHierarchy)
         {
           obj.transform.position = position;
           obj.transform.rotation = rotation;
-          obj.SetActive(true);
+          obj.gameObject.SetActive(true);
 
           return obj;
         }
       }
 
-      GameObject newObj = Object.Instantiate(_prefab, position, rotation, parent);
+      T newObj = Object.Instantiate(_prefab, position, rotation, parent);
 
       objectPool.Add(newObj);
 
       return newObj;
     }
 
-    public void ReturnObjectToPool(GameObject obj)
+    public void ReturnObjectToPool(T obj)
     {
-      obj.SetActive(false);
+      obj.gameObject.SetActive(false);
     }
   }
 }
