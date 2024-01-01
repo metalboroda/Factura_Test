@@ -10,6 +10,8 @@ namespace Factura
       {
         Health = 0;
       }
+
+      EventManager.RaisePlayerHealthChanged(Health);
     }
   }
 }

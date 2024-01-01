@@ -6,21 +6,30 @@ namespace Factura
   {
     [Header("")]
     [SerializeField] private LayerMask _destroyLayer;
+    [SerializeField] private int _power = 5;
+
+    [Header("")]
+    [SerializeField] private ParticleHandler _explosionVFX;
 
     private ObjectPool<ParticleHandler> _explosionPool;
 
     private void Awake()
     {
-      _explosionPool = new(ExplosionVFX, 5);
+      _explosionPool = new(_explosionVFX, 5);
     }
 
     private void OnTriggerEnter(Collider other)
     {
       if ((_destroyLayer.value & 1 << other.gameObject.layer) != 0)
       {
-        SpawnExplosion();
+        if (other.TryGetComponent(out IDamageable damageable))
+        {
+          damageable.Damage(_power);
 
-        Destroy(gameObject);
+          SpawnExplosion();
+
+          Destroy(gameObject);
+        }
       }
     }
 

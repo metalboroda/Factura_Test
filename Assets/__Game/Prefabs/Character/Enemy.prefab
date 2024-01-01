@@ -643,10 +643,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
-  ExplosionVFX: {fileID: 1723088909609016604, guid: 82b2db6d33d825c488b53fbfe1993a8c, type: 3}
   _destroyLayer:
     serializedVersion: 2
     m_Bits: 128
+  _power: 5
+  _explosionVFX: {fileID: 1723088909609016604, guid: 82b2db6d33d825c488b53fbfe1993a8c, type: 3}
 --- !u!114 &5969296097822597214
 MonoBehaviour:
   m_ObjectHideFlags: 0
