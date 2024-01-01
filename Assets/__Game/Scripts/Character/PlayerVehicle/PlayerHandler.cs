@@ -50,6 +50,7 @@ namespace Factura
       }
 
       EventManager.RaisePlayerHealthChanged(_currentHealth);
+      EventManager.PlayerDamaged();
     }
 
     private void OnHeal(int health)

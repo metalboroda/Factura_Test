@@ -831,11 +831,11 @@ MonoBehaviour:
   MaxHealth: 100
   ExplosionVFX: {fileID: 1723088909609016604, guid: 82b2db6d33d825c488b53fbfe1993a8c, type: 3}
   _enemyType: 0
-  _heal: 15
+  _heal: 10
   _destroyLayer:
     serializedVersion: 2
     m_Bits: 128
-  _power: 15
+  _power: 10
 --- !u!114 &5969296097822597214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f621413bae54a7344984cda3633692a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MovementSpeed>k__BackingField: 20
+  <MovementSpeed>k__BackingField: 17.5
   <RoationSpeed>k__BackingField: 5
 --- !u!114 &2470039531337721325
 MonoBehaviour:

@@ -16,6 +16,9 @@ namespace Factura
     public static event UnityAction<int> OnPlayerHealthChanged;
     public static void RaisePlayerHealthChanged(int health) => OnPlayerHealthChanged?.Invoke(health);
 
+    public static event UnityAction OnPlayerDamaged;
+    public static void PlayerDamaged() => OnPlayerDamaged?.Invoke();
+
     public static event UnityAction<int> OnPlayerHealed;
     public static void RaisePlayerHealed(int health) => OnPlayerHealed?.Invoke(health);
     #endregion

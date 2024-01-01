@@ -11,12 +11,8 @@ namespace Factura
     [SerializeField] private int _spawnAmount;
     [SerializeField] private int _heallerChance = 10;
 
-    private BoxCollider _boxCollider;
-
-    private void Awake()
-    {
-      _boxCollider = GetComponent<BoxCollider>();
-    }
+    [Header("")]
+    [SerializeField] private BoxCollider _spawnerCollider;
 
     private void Start()
     {
@@ -29,7 +25,7 @@ namespace Factura
 
       for (int i = 0; i < _spawnAmount; i++)
       {
-        Vector3 randomPosition = GetRandomPositionWithinCollider();
+        Vector3 randomPosition = GetRandomPointInCollider(_spawnerCollider);
         Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
         if (_needSpawnHealler == true)
@@ -45,18 +41,15 @@ namespace Factura
       }
     }
 
-    private Vector3 GetRandomPositionWithinCollider()
+    public static Vector3 GetRandomPointInCollider(BoxCollider collider)
     {
-      float minX = transform.position.x - _boxCollider.size.x / 2f;
-      float maxX = transform.position.x + _boxCollider.size.x / 2f;
+      Vector3 randomPoint = new Vector3(
+          Random.Range(collider.bounds.min.x, collider.bounds.max.x),
+          Random.Range(collider.bounds.min.y, collider.bounds.max.y),
+          Random.Range(collider.bounds.min.z, collider.bounds.max.z)
+      );
 
-      float minZ = transform.position.z - _boxCollider.size.z / 2f;
-      float maxZ = transform.position.z + _boxCollider.size.z / 2f;
-
-      float randomX = Random.Range(minX, maxX);
-      float randomZ = Random.Range(minZ, maxZ);
-
-      return new Vector3(randomX, 0f, randomZ);
+      return randomPoint;
     }
   }
 }
