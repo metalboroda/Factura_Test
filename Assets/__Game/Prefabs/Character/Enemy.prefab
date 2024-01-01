@@ -828,8 +828,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0442d9f49aa1f90459c08e1e1fd6d65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  MaxHealth: 100
   ExplosionVFX: {fileID: 1723088909609016604, guid: 82b2db6d33d825c488b53fbfe1993a8c, type: 3}
+  _enemyType: 0
+  _heal: 10
   _destroyLayer:
     serializedVersion: 2
     m_Bits: 128

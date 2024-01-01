@@ -5,6 +5,7 @@ namespace Factura
   public class EnemySpawner : MonoBehaviour
   {
     [SerializeField] private bool _needSpawn = true;
+    [SerializeField] private bool _needSpawnHealler = false;
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private GameObject _enemyHeallerPrefab;
     [SerializeField] private int _spawnAmount;
@@ -31,9 +32,16 @@ namespace Factura
         Vector3 randomPosition = GetRandomPositionWithinCollider();
         Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-        GameObject enemyPrefabToSpawn = Random.value < (_heallerChance / 100f) ? _enemyHeallerPrefab : _enemyPrefab;
+        if (_needSpawnHealler == true)
+        {
+          GameObject enemyPrefabToSpawn = Random.value < (_heallerChance / 100f) ? _enemyHeallerPrefab : _enemyPrefab;
 
-        Instantiate(enemyPrefabToSpawn, randomPosition, randomRotation, transform);
+          Instantiate(enemyPrefabToSpawn, randomPosition, randomRotation, transform);
+        }
+        else
+        {
+          Instantiate(_enemyPrefab, randomPosition, randomRotation, transform);
+        }
       }
     }
 

@@ -70,4 +70,4 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 3886120733697114696, guid: e0d4997a7fa1ad743a27ff12a065bd6d, type: 3}
   _enemyHeallerPrefab: {fileID: 8451360997485969722, guid: bd6b868aeff090245acf318394cb6d4f, type: 3}
   _spawnAmount: 5
-  _heallerChance: 5
+  _heallerChance: 10
