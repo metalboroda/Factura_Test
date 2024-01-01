@@ -57,7 +57,7 @@ namespace Factura
 
       _winNextLevelBtn.onClick.AddListener(() =>
       {
-        _levelController.LoadNextLevel();
+        _levelController.RestartLevel();
       });
 
       _loseRestartBtn.onClick.AddListener(() =>
