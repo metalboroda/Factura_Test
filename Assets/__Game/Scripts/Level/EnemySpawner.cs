@@ -6,7 +6,9 @@ namespace Factura
   {
     [SerializeField] private bool _needSpawn = true;
     [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private GameObject _enemyHeallerPrefab;
     [SerializeField] private int _spawnAmount;
+    [SerializeField] private int _heallerChance = 10;
 
     private BoxCollider _boxCollider;
 
@@ -22,14 +24,16 @@ namespace Factura
 
     private void SpawnEnemies()
     {
-      if (_needSpawn == false) return;
+      if (!_needSpawn) return;
 
       for (int i = 0; i < _spawnAmount; i++)
       {
         Vector3 randomPosition = GetRandomPositionWithinCollider();
         Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
 
-        Instantiate(_enemyPrefab, randomPosition, randomRotation, transform);
+        GameObject enemyPrefabToSpawn = Random.value < (_heallerChance / 100f) ? _enemyHeallerPrefab : _enemyPrefab;
+
+        Instantiate(enemyPrefabToSpawn, randomPosition, randomRotation, transform);
       }
     }
 

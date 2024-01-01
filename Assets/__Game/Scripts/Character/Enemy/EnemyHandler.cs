@@ -1,5 +1,6 @@
-using System;
+﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Factura
 {
@@ -8,17 +9,20 @@ namespace Factura
     public event Action<int> EnemyHealthChanged;
 
     [Header("")]
-    [SerializeField] private LayerMask _destroyLayer;
-    [SerializeField] private int _power = 5;
+    [SerializeField] private EnemyTypeEnum _enemyType = EnemyTypeEnum.Default;
+
+    [Header("Healler")]
+    [SerializeField] private int _heal = 25;
 
     [Header("")]
-    [SerializeField] private ParticleHandler _explosionVFX;
+    [SerializeField] private LayerMask _destroyLayer;
+    [SerializeField] private int _power = 5;
 
     private ObjectPool<ParticleHandler> _explosionPool;
 
     private void Awake()
     {
-      _explosionPool = new(_explosionVFX, 5);
+      _explosionPool = new(ExplosionVFX, 5);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,27 +33,24 @@ namespace Factura
         {
           damageable.Damage(_power);
 
-          SpawnExplosion();
-
-          Destroy(gameObject);
+          Death();
         }
       }
     }
 
     public override void Damage(int damage)
     {
-      Health -= damage;
+      MaxHealth -= damage;
 
-      if (Health < 0)
+      if (MaxHealth < 0)
       {
-        Health = 0;
+        MaxHealth = 0;
 
-        SpawnExplosion();
-
-        Destroy(gameObject);
+        HeallerDeath();
+        Death();
       }
 
-      EnemyHealthChanged?.Invoke(Health);
+      EnemyHealthChanged?.Invoke(MaxHealth);
     }
 
     private void SpawnExplosion()
@@ -57,6 +58,21 @@ namespace Factura
       var explosion = _explosionPool.GetObjectFromPool(transform.position, transform.rotation, null);
 
       explosion.Init(transform.position, _explosionPool);
+    }
+
+    public override void Death()
+    {
+      SpawnExplosion();
+
+      Destroy(gameObject);
+    }
+
+    private void HeallerDeath()
+    {
+      if (_enemyType == EnemyTypeEnum.Healler)
+      {
+        EventManager.RaisePlayerHealed(_heal);
+      }
     }
   }
 }

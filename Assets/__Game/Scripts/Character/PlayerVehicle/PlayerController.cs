@@ -27,6 +27,8 @@ namespace Factura
       };
 
       EventManager.OnGameStateChanged += _gameStateChangedAction;
+
+      StateMachine.StateChanged += OnStateChanged;
     }
 
     private void Update()
@@ -37,6 +39,14 @@ namespace Factura
     private void OnDisable()
     {
       EventManager.OnGameStateChanged -= _gameStateChangedAction;
+
+      StateMachine.StateChanged -= OnStateChanged;
+    }
+
+    private void OnStateChanged(State state)
+    {
+      State newState = state;
+      EventManager.RaisePlayerStateChanged(newState);
     }
   }
 }

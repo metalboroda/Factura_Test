@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ namespace Factura
 
     [Header("Game Screen")]
     [SerializeField] private GameObject _gameScreen;
+    [SerializeField] private Image _gameHealingVignette;
+    [SerializeField] private float _gameHealingVignetteDur = 0.5f;
 
     [Header("Win Screen")]
     [SerializeField] private GameObject _winScreen;
@@ -29,6 +32,7 @@ namespace Factura
     private void OnEnable()
     {
       EventManager.OnGameStateChanged += SwitchScreen;
+      EventManager.OnPlayerHealed += ShowHealing;
     }
 
     private void Start()
@@ -40,6 +44,7 @@ namespace Factura
     private void OnDisable()
     {
       EventManager.OnGameStateChanged -= SwitchScreen;
+      EventManager.OnPlayerHealed -= ShowHealing;
     }
 
     private void SubscribeButtons()
@@ -90,6 +95,15 @@ namespace Factura
           screen.gameObject.SetActive(false);
         }
       }
+    }
+
+    private void ShowHealing(int health)
+    {
+      Sequence seq = DOTween.Sequence();
+
+      seq.Append(_gameHealingVignette.DOFade(0.5f, _gameHealingVignetteDur));
+      seq.Append(_gameHealingVignette.DOFade(0, _gameHealingVignetteDur));
+      seq.Play();
     }
   }
 }

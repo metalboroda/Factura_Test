@@ -17,15 +17,14 @@ namespace Factura
 
     public void ChangeState(State newState)
     {
-      if (newState != CurrentState)
-      {
-        PreviousState = CurrentState;
-        CurrentState.Exit();
-        CurrentState = newState;
-        CurrentState.Enter();
+      if (newState == CurrentState) return;
 
-        StateChanged?.Invoke(CurrentState);
-      }
+      PreviousState = CurrentState;
+      CurrentState.Exit();
+      CurrentState = newState;
+      CurrentState.Enter();
+
+      StateChanged?.Invoke(CurrentState);
     }
   }
 }

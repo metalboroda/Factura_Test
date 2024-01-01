@@ -1,5 +1,6 @@
 using Dreamteck.Splines;
 using UnityEngine;
+using Zenject;
 
 namespace Factura
 {
@@ -9,6 +10,8 @@ namespace Factura
 
     [Header("")]
     [SerializeField] private PlayerController _playerController;
+
+    [Inject] private GameController _gameController;
 
     private void OnEnable()
     {
@@ -28,8 +31,7 @@ namespace Factura
     private void OnEndReached(double obj)
     {
       _playerController.StateMachine.ChangeState(new PlayerIdleState(_playerController));
-
-      EventManager.RaisePlayerStateChanged(_playerController.StateMachine.CurrentState);
+      _gameController.ChangeState(GameStateEnum.Win);
     }
   }
 }
