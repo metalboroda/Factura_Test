@@ -831,7 +831,7 @@ MonoBehaviour:
   MaxHealth: 100
   ExplosionVFX: {fileID: 1723088909609016604, guid: 82b2db6d33d825c488b53fbfe1993a8c, type: 3}
   _enemyType: 0
-  _heal: 10
+  _heal: 15
   _destroyLayer:
     serializedVersion: 2
     m_Bits: 128
