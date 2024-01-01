@@ -8,6 +8,7 @@ namespace Factura
   {
     [SerializeField] public List<string> _idles = new();
     [SerializeField] public List<string> _runs = new();
+    [SerializeField] public List<string> _victories = new();
 
     public string GetRandIdleAnim()
     {
@@ -21,6 +22,13 @@ namespace Factura
       int rand = Random.Range(0, _runs.Count);
 
       return _runs[rand];
+    }
+
+    public string GetRandVictoryAnim()
+    {
+      int rand = Random.Range(0, _victories.Count);
+
+      return _victories[rand];
     }
   }
 }

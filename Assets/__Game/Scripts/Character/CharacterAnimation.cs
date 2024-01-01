@@ -21,5 +21,10 @@ namespace Factura
     {
       _animator.CrossFadeInFixedTime(_characterAnimationSO.GetRandRunAnim(), _crossfade);
     }
+
+    public void VictoryAnim()
+    {
+      _animator.CrossFadeInFixedTime(_characterAnimationSO.GetRandVictoryAnim(), _crossfade);
+    }
   }
 }

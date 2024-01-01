@@ -9,18 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 022b9faf26964c843a8bd5f5d744a244, type: 3}
-  m_Name: CharacterAnimationSO
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: Levels_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  _idles:
-  - Idle_1
-  - Idle_2
-  - Idle_3
-  _runs:
-  - Run_1
-  - Run_2
-  - Run_3
-  _victories:
-  - Victory_1
-  - Victory_2
-  - Victory_3
+  m_Group: {fileID: 11400000, guid: cb1f18cd2042d4142acd1833893dada2, type: 2}
+  m_StaticContent: 0

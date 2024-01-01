@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692a472f9fc049041b4c3dedfb192cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  MaxHealth: 100
   ExplosionVFX: {fileID: 4293216429871322614, guid: 57911547042a89d4db6fc6e7461a2fb8, type: 3}
   _boxCollider: {fileID: 7276501297560782348}
   _model: {fileID: 3021691321547538596}

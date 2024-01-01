@@ -28,6 +28,7 @@ namespace Factura
     private List<GameObject> _screens = new();
 
     [Inject] private GameController _gameController;
+    [Inject] private LevelController _levelController;
 
     private void OnEnable()
     {
@@ -52,6 +53,16 @@ namespace Factura
       _startBtn.onClick.AddListener(() =>
       {
         _gameController.ChangeState(GameStateEnum.Game);
+      });
+
+      _winNextLevelBtn.onClick.AddListener(() =>
+      {
+        _levelController.LoadNextLevel();
+      });
+
+      _loseRestartBtn.onClick.AddListener(() =>
+      {
+        _levelController.RestartLevel();
       });
     }
 

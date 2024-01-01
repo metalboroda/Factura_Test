@@ -26,6 +26,12 @@ namespace Factura
           EnemyDetector.gameObject.SetActive(false);
           StateMachine.ChangeState(new EnemyDeathState(this));
         }
+
+        if (state == GameStateEnum.Lose)
+        {
+          EnemyDetector.gameObject.SetActive(false);
+          StateMachine.ChangeState(new EnemyVictoryState(this));
+        }
       };
 
       EventManager.OnGameStateChanged += _gameStateChangedAction;
