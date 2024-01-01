@@ -82,7 +82,8 @@ MonoBehaviour:
   Projectile: {fileID: 3130166329920833763, guid: b6ab0a32ce1b8c740a3a0c2cf861b729, type: 3}
   ShootingPoint: {fileID: 4064262472503825016}
   Speed: 200
-  Power: 75
+  MinPower: 75
+  MaxPower: 110
   Autoshooting: 1
   ShootingInterval: 0.25
   EnemyLayer:

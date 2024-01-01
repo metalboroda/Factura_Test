@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 namespace Factura
 {
   public class EnemyHandler : CharacterHandler
   {
+    public event Action<int> EnemyHealthChanged;
+
     [Header("")]
     [SerializeField] private LayerMask _destroyLayer;
     [SerializeField] private int _power = 5;
@@ -45,6 +48,8 @@ namespace Factura
 
         Destroy(gameObject);
       }
+
+      EnemyHealthChanged?.Invoke(Health);
     }
 
     private void SpawnExplosion()

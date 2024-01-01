@@ -37,9 +37,11 @@ namespace Factura
 
     public override void Shoot()
     {
+      int randPower = Random.Range(MinPower, MaxPower);
+
       SpawnedProjectile = ProjectilePool.GetObjectFromPool(
         ShootingPoint.position, ShootingPoint.rotation, null);
-      SpawnedProjectile.Init(Speed, Power, ShootingPoint.position,
+      SpawnedProjectile.Init(Speed, randPower, ShootingPoint.position,
         ShootingPoint.rotation, ProjectilePool);
 
       SpawnFlare();

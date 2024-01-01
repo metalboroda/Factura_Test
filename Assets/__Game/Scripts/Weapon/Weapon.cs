@@ -10,7 +10,8 @@ namespace Factura
 
     [Header("Projectile")]
     [SerializeField] protected int Speed;
-    [SerializeField] protected int Power;
+    [SerializeField] protected int MinPower;
+    [SerializeField] protected int MaxPower;
 
     [Header("Shooting")]
     [SerializeField] protected bool Autoshooting;
