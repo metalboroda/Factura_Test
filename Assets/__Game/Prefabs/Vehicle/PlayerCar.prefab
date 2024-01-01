@@ -1527,7 +1527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 50, z: -50}
+  m_FollowOffset: {x: 0, y: 60, z: -60}
   m_XDamping: 1
   m_YDamping: 0
   m_ZDamping: 0

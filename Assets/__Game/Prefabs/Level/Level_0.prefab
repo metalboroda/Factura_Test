@@ -1009,7 +1009,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2391105125242262814, guid: 9bbb1abe78feb6d45bb6e7f3a32e0b66, type: 3}
       propertyPath: _spawnAmount
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2391105125242262814, guid: 9bbb1abe78feb6d45bb6e7f3a32e0b66, type: 3}
       propertyPath: _heallerChance
@@ -1073,7 +1073,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8848494737439740760, guid: 9bbb1abe78feb6d45bb6e7f3a32e0b66, type: 3}
       propertyPath: m_Size.z
-      value: 525
+      value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848494737439740760, guid: 9bbb1abe78feb6d45bb6e7f3a32e0b66, type: 3}
+      propertyPath: m_Center.z
+      value: 12.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
