@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,7 +24,6 @@ namespace Factura
     private void Start()
     {
       ChangeState(GameStateEnum.Start);
-      StartCoroutine(DoGameState());
     }
 
     private void OnDisable()
@@ -42,14 +40,6 @@ namespace Factura
 
         EventManager.RaiseGameStateChanged(GameState);
       }
-    }
-
-    // Temp
-    private IEnumerator DoGameState()
-    {
-      yield return new WaitForSeconds(1);
-
-      ChangeState(GameStateEnum.Game);
     }
   }
 }
