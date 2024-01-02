@@ -6,7 +6,6 @@ namespace Factura
   {
     [Header("Turret")]
     [SerializeField] private float _rotationSpeed;
-    [SerializeField] private float _rotMultiplier;
 
     private float _lastShotTime;
 
@@ -49,7 +48,7 @@ namespace Factura
 
     public void Rotate(Vector2 axis)
     {
-      _rotationComp.RotateByInput(_rotationSpeed, _rotMultiplier, axis, transform);
+      _rotationComp.RotateByInput(_rotationSpeed, axis, transform);
     }
 
     private void SpawnFlare()

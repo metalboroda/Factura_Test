@@ -4,12 +4,13 @@ namespace Factura
 {
   public class RotationComp
   {
-    public void RotateByInput(float speed, float rotMultiplier, Vector2 axis, Transform transform)
+    public void RotateByInput(float speed, Vector2 axis, Transform transform)
     {
-      Quaternion targetRotation = Quaternion.Euler(transform.rotation.eulerAngles.x,
-        axis.x * rotMultiplier, transform.rotation.eulerAngles.z);
-      transform.rotation = Quaternion.RotateTowards(transform.rotation,
-        targetRotation, speed * Time.deltaTime);
+      float rotationAmount = axis.x * speed * Time.deltaTime;
+      Vector3 currentRotation = transform.rotation.eulerAngles;
+
+      currentRotation.y += rotationAmount;
+      transform.rotation = Quaternion.Euler(currentRotation);
     }
   }
 }

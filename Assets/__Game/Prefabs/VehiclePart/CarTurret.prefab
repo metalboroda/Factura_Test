@@ -97,7 +97,6 @@ MonoBehaviour:
   _endWidth: 0
   FlareVFX: {fileID: 6065446529312300543, guid: 8db0bc8986bdaff4fbd546f150ca47a8, type: 3}
   _rotationSpeed: 125
-  _rotMultiplier: 90
 --- !u!1 &5908407924163692657
 GameObject:
   m_ObjectHideFlags: 0
